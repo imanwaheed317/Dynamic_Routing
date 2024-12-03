@@ -15,10 +15,10 @@
     "incremental": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"],              // Absolute imports ke liye change
-      "@app/*": ["app/*"],       // Yahan "src/app/*" ki zaroorat nahi
-      "@components/*": ["components/*"],  // Components folder ke liye direct path
-      "@data/*": ["data/*"]       // Data folder ka direct path
+      "@/*": ["*"],                     // Root alias
+      "@app/*": ["app/*"],              // Maps to src/app/*
+      "@components/*": ["components/*"],// Maps to src/components/*
+      "@data/*": ["data/*"]             // Maps to src/data/*
     },
     "plugins": [
       {

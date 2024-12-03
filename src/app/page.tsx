@@ -1,36 +1,32 @@
-import Link from 'next/link';
+
+import Link from "next/link";
+
+const countries = [
+  { name: "Pakistan" },
+  { name: "Germany" },
+  { name: "Australia" },
+  { name: "Canada" },
+  { name: "India" },
+];
 
 export default function HomePage() {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen p-6 bg-gradient-to-r from-purple-300 to-blue-300'>
-      <h1 className='text-5xl font-serif mb-8 text-gray-900 drop-shadow-lg'><em>Countries Information</em></h1>
-      <ul className='space-y-4'>
-        <li>
-          <Link href="/countries/Pakistan" className='block p-4 rounded-lg bg-green-500 text-white transition-transform transform hover:scale-105 hover:bg-green-700 shadow-lg'>
-            🇵🇰 <strong>Pakistan</strong>
-          </Link>
-        </li>
-        <li>
-          <Link href="/countries/Germany" className='block p-4 rounded-lg bg-yellow-500 text-white transition-transform transform hover:scale-105 hover:bg-orange-800 shadow-lg'>
-            🇩🇪 <strong>Germany</strong>
-          </Link>
-        </li>
-        <li>
-          <Link href="/countries/Australia" className='block p-4 rounded-lg bg-blue-900 text-white transition-transform transform hover:scale-105 hover:bg-purple-400 shadow-lg'>
-            🇦🇺 <strong>Australia</strong>
-          </Link>
-        </li>
-        <li>
-          <Link href="/countries/Canada" className='block p-4 rounded-lg bg-pink-500 text-white transition-transform transform hover:scale-105 hover:bg-pink-600 shadow-lg'>
-            🇨🇦 <strong>Canada</strong>
-          </Link>
-        </li>
-        <li>
-          <Link href="/countries/India" className='block p-4 rounded-lg bg-sky-500 text-white transition-transform transform hover:scale-105 hover:bg-blue-900 shadow-lg'>
-            🇮🇳 <strong>India</strong>
-          </Link>
-        </li>
-      </ul>
+    <div className="min-h-screen bg-gradient-to-b from-[#422a5e] via-teal-500 to-cyan-700 flex items-center justify-center p-6">
+      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+        <h1 className="text-3xl font-serif underline font-bold text-center mb-6 text-black">Country List</h1>
+        <ul className="space-y-4">
+          {countries.map((country) => (
+            <li
+              key={country.name}
+              className="text-lg text-center bg-gradient-to-r from-[#5fa2b3] to-green-500 font-bold py-2 rounded-lg hover:shadow-md hover:scale-105 transform transition duration-300 ease-in-out"
+            >
+              <Link href={`/country/${country.name.toLowerCase()}`}>
+                {country.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
